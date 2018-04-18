@@ -96,12 +96,18 @@ public class RedSeminario {
 		W.setCPTable("DetectarPeligro", 0.5, 0.5);
 		
 		net.compile();
-		
-		double belief = St1.getBelief ("Explorar");          
-		System.out.println (belief);
-		St.finding().enterState ("Explorar");
-		belief = St1.getBelief ("Explorar");          
-		System.out.println (belief);
+		       
+		St.finding().enterState ("DetectarPeligro");
+		H.finding().enterState("bajo");
+		OW.finding().enterState("armado");
+		HN.finding().enterState("si");
+		NE.finding().enterState ("muchos");
+		PW.finding().enterState ("no");
+		PH.finding().enterState ("no");
+		W.finding().enterState ("desarmado");
+		        
+		System.out.println ("Atacar: " +St1.getBelief ("Atacar") + " Buscar Armas: " + St1.getBelief ("BuscarArmas") + " Buscar Energia: " + St1.getBelief ("BuscarEnergia")
+				+ "\n Explorar: " + St1.getBelief ("Explorar") + " Huir: " + St1.getBelief ("Huir") + " Detectar peligro: " + St1.getBelief ("DetectarPeligro"));
 		
 		net.finalize();
     }
